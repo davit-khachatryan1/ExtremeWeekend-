@@ -294,7 +294,7 @@ export const CHECKPOINTS: Checkpoint[] = [
   },
   {
     u: 1, alt: 2200, image: '', icon: 'tent',
-    name: { hy: 'Ճամբար Աթանի մոտ', en: 'Camp near Atan', ru: 'Лагерь у Атана' },
+    name: { hy: 'Լեռնային ճամբար', en: 'Mountain camp', ru: 'Горный лагерь' },
     text: {
       hy: 'Մոտ 2 ժամ անց՝ ճամբարը Լոռու ալպյան մարգագետիններում։ Խորոված, խարույկ և աստղեր։',
       en: 'About 2 hours later — our camp in the alpine meadows of Lori. Khorovats, campfire and stars.',
@@ -342,9 +342,9 @@ export const T = {
       ru: 'Weekend Extreme — джип-экспедиции по Армении | Лагерь, квест, звёзды',
     },
     description: {
-      hy: '2–3 օրանոց off-road արշավ ՈՒԱԶ և Նիվա ջիպերով՝ Կոթի գյուղից (Տավուշ) մինչև ալպյան ճամբար Աթանի մոտ (Լոռի)։ Քվեստ խաղ, խորոված, խարույկ, աստղեր։ 15 000 դրամից։',
-      en: '2–3 day off-road expedition by UAZ & Niva jeeps from Koti village (Tavush) to an alpine camp near Atan (Lori). Quest game, khorovats, campfire, stars. From 15 000 AMD.',
-      ru: 'Off-road экспедиция на 2–3 дня на УАЗ и Нивах из села Коти (Тавуш) в альпийский лагерь у Атана (Лори). Квест, хоровац, костёр, звёзды. От 15 000 драм.',
+      hy: '2–3 օրանոց off-road արշավ ՈՒԱԶ և Նիվա ջիպերով՝ Կոթի գյուղից (Տավուշ) մինչև Լոռու ալպյան ճամբար։ Քվեստ խաղ, խորոված, խարույկ, աստղեր։ 15 000 դրամից։',
+      en: '2–3 day off-road expedition by UAZ & Niva jeeps from Koti village (Tavush) to an alpine camp in Lori. Quest game, khorovats, campfire, stars. From 15 000 AMD.',
+      ru: 'Off-road экспедиция на 2–3 дня на УАЗ и Нивах из села Коти (Тавуш) в альпийский лагерь в Лори. Квест, хоровац, костёр, звёзды. От 15 000 драм.',
     },
   },
 
@@ -415,9 +415,9 @@ export const T = {
       {
         title: { hy: 'Լեռնային ճամբար', en: 'Mountain camp', ru: 'Горный лагерь' },
         text: {
-          hy: 'Գիշեր Աթանի մոտ ալպյան մարգագետիններում՝ խարույկ, խորոված և աստղեր։',
-          en: 'A night in the alpine meadows near Atan — campfire, khorovats and stars.',
-          ru: 'Ночь на альпийских лугах у Атана — костёр, хоровац и звёзды.',
+          hy: 'Գիշեր Լոռու ալպյան մարգագետիններում՝ խարույկ, խորոված և աստղեր։',
+          en: 'A night in the alpine meadows of Lori — campfire, khorovats and stars.',
+          ru: 'Ночь на альпийских лугах Лори — костёр, хоровац и звёзды.',
         },
       },
       {
@@ -440,9 +440,9 @@ export const T = {
     eyebrow: { hy: 'Երթուղի և քարտեզ', en: 'Route & map', ru: 'Маршрут и карта' },
     title: { hy: 'Կոթիից մինչև ամպեր', en: 'From Koti to the clouds', ru: 'Из Коти — до облаков' },
     lead: {
-      hy: 'Ջիպային երթուղին միշտ սկսվում է Կոթի գյուղից (Տավուշ)՝ բոլոր խմբերի համար։ Կոթի → անտառներ և լեռնային ճանապարհներ → ալպյան մարգագետիններ → ճամբար Աթանի մոտ (Լոռի), ~2 ժամ 4x4-ով։',
-      en: 'The jeep route always starts in Koti village (Tavush) — for every group. Koti → forests & mountain roads → alpine meadows → camp near Atan (Lori), ~2 h by 4x4.',
-      ru: 'Джип-маршрут всегда начинается в селе Коти (Тавуш) — для всех групп. Коти → леса и горные дороги → альпийские луга → лагерь у Атана (Лори), ~2 ч на 4x4.',
+      hy: 'Ջիպային երթուղին միշտ սկսվում է Կոթի գյուղից (Տավուշ)՝ բոլոր խմբերի համար։ Կոթի → անտառներ և լեռնային ճանապարհներ → ալպյան մարգագետիններ → ճամբար Լոռու ալպյան մարգագետիններում, ~2 ժամ 4x4-ով։',
+      en: 'The jeep route always starts in Koti village (Tavush) — for every group. Koti → forests & mountain roads → alpine meadows → our camp in the alpine meadows of Lori, ~2 h by 4x4.',
+      ru: 'Джип-маршрут всегда начинается в селе Коти (Тавуш) — для всех групп. Коти → леса и горные дороги → альпийские луга → лагерь на альпийских лугах Лори, ~2 ч на 4x4.',
     },
     why: {
       hy: 'Ճանապարհը երկար է, դրա համար էլ սա 2–3 օրանոց արշավ է՝ գիշերակացով լեռներում, և ոչ թե հոգնեցնող մեկօրյա տուր։',
@@ -620,9 +620,9 @@ export const T = {
     eyebrow: { hy: 'Ճամբար', en: 'The camp', ru: 'Лагерь' },
     title: { hy: 'Գիշերը ամպերից վեր', en: 'A night above the clouds', ru: 'Ночь над облаками' },
     lead: {
-      hy: 'Մշտական ճամբար վարձակալած հողատարածքում՝ Աթանի մոտ ալպյան մարգագետիններում։',
-      en: 'A permanent camp on rented land in the alpine meadows near Atan.',
-      ru: 'Постоянный лагерь на арендованной земле среди альпийских лугов у Атана.',
+      hy: 'Մշտական ճամբար վարձակալած հողատարածքում՝ Լոռու ալպյան մարգագետիններում։',
+      en: 'A permanent camp on rented land in the alpine meadows of Lori.',
+      ru: 'Постоянный лагерь на арендованной земле среди альпийских лугов Лори.',
     },
     day: { hy: 'Օր', en: 'Day', ru: 'День' },
     night: { hy: 'Գիշեր', en: 'Night', ru: 'Ночь' },
@@ -977,9 +977,9 @@ export const T = {
 
   footer: {
     about: {
-      hy: 'Weekend Extreme-ը նոր off-road ջիպ-արշավների ընկերություն է Հյուսիսային Հայաստանում․ Կոթիից (Տավուշ) մինչև Աթանի մոտ ալպյան մարգագետիններ (Լոռի)։',
-      en: 'Weekend Extreme is a new off-road jeep expedition company in northern Armenia — from Koti (Tavush) to the alpine meadows near Atan (Lori).',
-      ru: 'Weekend Extreme — новая компания джип-экспедиций на севере Армении: от Коти (Тавуш) до альпийских лугов у Атана (Лори).',
+      hy: 'Weekend Extreme-ը նոր off-road ջիպ-արշավների ընկերություն է Հյուսիսային Հայաստանում․ Կոթիից (Տավուշ) մինչև Լոռու ալպյան մարգագետիններ։',
+      en: 'Weekend Extreme is a new off-road jeep expedition company in northern Armenia — from Koti (Tavush) to the alpine meadows of Lori.',
+      ru: 'Weekend Extreme — новая компания джип-экспедиций на севере Армении: от Коти (Тавуш) до альпийских лугов Лори.',
     },
     contacts: { hy: 'Կոնտակտներ', en: 'Contacts', ru: 'Контакты' },
     follow: { hy: 'Հետևիր մեզ', en: 'Follow us', ru: 'Мы в соцсетях' },
@@ -987,7 +987,6 @@ export const T = {
     partners: { hy: 'Գործընկերներ', en: 'Partners', ru: 'Партнёры' },
     partnersList: [
       { hy: 'Կոթի համայնք', en: 'Koti community', ru: 'Община Коти' },
-      { hy: 'Աթան համայնք', en: 'Atan community', ru: 'Община Атан' },
       { hy: 'Տեղի ընտանիքներ', en: 'Local families', ru: 'Местные семьи' },
     ],
     campMap: { hy: 'Ճամբարը քարտեզում', en: 'Camp on the map', ru: 'Лагерь на карте' },

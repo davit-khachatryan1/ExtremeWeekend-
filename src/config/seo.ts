@@ -4,7 +4,7 @@
 import { LANGS, PACKAGES, SITE, T, type Lang } from './content';
 
 export const KEYWORDS = [
-  'Weekend Extreme', 'off-road tour Armenia', 'jeep tour Tavush Lori', 'Koti', 'Atan',
+  'Weekend Extreme', 'off-road tour Armenia', 'jeep tour Tavush Lori', 'Koti', 'Lori',
   'camping Armenia', 'team building Armenia', 'ջիպ տուր', 'էքստրիմ տուր', 'շաբաթ-կիրակի տուր', 'ճամբար',
   'джип тур Армения', 'off-road Армения',
 ].join(', ');
@@ -34,7 +34,7 @@ export function structuredData(lang: Lang) {
       '@type': 'ItemList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, item: { '@type': 'Place', name: 'Koti village, Tavush, Armenia' } },
-        { '@type': 'ListItem', position: 2, item: { '@type': 'Place', name: 'Alpine camp near Atan, Lori, Armenia', hasMap: SITE.campMapUrl } },
+        { '@type': 'ListItem', position: 2, item: { '@type': 'Place', name: 'Alpine camp, Lori, Armenia', hasMap: SITE.campMapUrl } },
       ],
     },
     provider: {

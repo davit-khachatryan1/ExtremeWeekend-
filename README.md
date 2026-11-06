@@ -1,6 +1,6 @@
 # Weekend Extreme — website
 
-Immersive single-page site for **Weekend Extreme**, off-road jeep expeditions from Koti (Tavush) to the alpine camp near Atan (Lori).
+Immersive single-page site for **Weekend Extreme**, off-road jeep expeditions from Koti (Tavush) to the alpine camp in Lori.
 
 - **3D hero**: real-time low-poly mountains, forests, wind-blown grass, fog and clouds. A convoy of UAZ-style jeeps drives the glowing route Koti → Camp **as you scroll**, with a live HUD (checkpoint, time on the road, altitude).
 - **Day → night** in the Camp section: the sun sets, then stars, the Milky Way, the moon and a flickering campfire with sparks.

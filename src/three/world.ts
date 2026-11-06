@@ -45,7 +45,7 @@ const CTRL: [number, number][] = [
   [56, -34],
   [82, -56],
   [100, -88],
-  [124, -116], // CAMP near Atan — END
+  [124, -116], // mountain CAMP (Lori) — END
 ];
 
 const SAMPLES = 260;

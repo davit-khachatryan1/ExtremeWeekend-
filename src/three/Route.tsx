@@ -170,7 +170,7 @@ export function Beacons() {
   );
 }
 
-/* "Koti · start" and "Camp · Atan" labels that live in the 3D world */
+/* "Koti · start" and "Mountain camp" labels that live in the 3D world */
 export function RouteLabels() {
   const { t } = useLang();
   const ref = useRef<HTMLDivElement[]>([]);

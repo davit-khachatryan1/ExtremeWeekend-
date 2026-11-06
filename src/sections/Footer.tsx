@@ -67,7 +67,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5 text-[15px] text-offwhite/75">
               {T.footer.partnersList.map((p, i) => (
                 <li key={i} className="flex items-center gap-2">
-                  <Icon name={i === 2 ? 'users' : 'building'} size={16} className="text-offwhite/40" /> {t(p)}
+                  <Icon name={i === T.footer.partnersList.length - 1 ? 'users' : 'building'} size={16} className="text-offwhite/40" /> {t(p)}
                 </li>
               ))}
             </ul>

@@ -1,4 +1,4 @@
-/* The camp near Atan (tents, dining canopy, toilet, solar shower, campfire with
+/* The mountain camp in Lori (tents, dining canopy, toilet, solar shower, campfire with
  * sparks, fairy lights, flag) and the start village Koti. */
 import { useMemo, useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
