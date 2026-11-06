@@ -1,0 +1,195 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/oswald/wght.css';
+@import '@fontsource-variable/noto-sans-armenian/wdth.css';
+@import '@fontsource-variable/noto-sans/wght.css';
+@import 'lenis/dist/lenis.css';
+
+/* ------------------------------------------------------------------ theme */
+@theme {
+  --color-forest: #0f2a1d;
+  --color-forest-2: #153626;
+  --color-meadow: #5b8c3a;
+  --color-meadow-2: #86a94e;
+  --color-sunset: #e8772e;
+  --color-sunset-2: #f29a55;
+  --color-mud: #4a3626;
+  --color-offwhite: #f4f1ea;
+  --color-sand: #e6dfd0;
+  --color-night: #0b1426;
+  --color-night-2: #121e36;
+
+  /* Oswald covers Latin + Cyrillic; Armenian falls back to condensed Noto Sans Armenian */
+  --font-display: 'Oswald Variable', 'Noto Sans Armenian Variable', 'Arial Narrow', sans-serif;
+  --font-sans: 'Noto Sans Variable', 'Noto Sans Armenian Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------------ base */
+@layer base {
+  html {
+    background: var(--color-forest);
+    color: var(--color-offwhite);
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 72px;
+  }
+  body {
+    background: var(--color-forest);
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    /* long Armenian / Russian words never spill out of their box */
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-sunset);
+    color: var(--color-forest);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-sunset);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  img,
+  video {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+/* Display headings: condensed. Armenian glyphs use Noto Sans Armenian at 72% width. */
+.font-display {
+  font-family: var(--font-display);
+  font-stretch: 72%;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+}
+body[data-lang='hy'] .font-display {
+  letter-spacing: 0;
+  font-weight: 800;
+}
+
+/* text in narrow tiles/cards: break long words when they can't fit */
+.wrap-safe {
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+/* film grain overlay */
+.grain::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* topographic line pattern for dark sections */
+.topo {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cg fill='none' stroke='%23F4F1EA' stroke-opacity='.06' stroke-width='1.2'%3E%3Cpath d='M-20 120c80-60 160 40 260-10s180-90 380 20'/%3E%3Cpath d='M-20 160c90-50 170 50 270 0s170-80 370 30'/%3E%3Cpath d='M-20 200c100-40 180 60 280 10s160-70 360 40'/%3E%3Cpath d='M-20 380c120 40 200-60 300-20s200 80 340-10'/%3E%3Cpath d='M-20 420c120 50 210-50 310-10s190 70 330-20'/%3E%3Cpath d='M-20 460c130 60 220-40 320 0s180 60 320-30'/%3E%3Cellipse cx='450' cy='290' rx='60' ry='34'/%3E%3Cellipse cx='450' cy='290' rx='100' ry='60'/%3E%3Cellipse cx='120' cy='560' rx='70' ry='30'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 600px 600px;
+}
+.topo-dark {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cg fill='none' stroke='%230F2A1D' stroke-opacity='.07' stroke-width='1.2'%3E%3Cpath d='M-20 120c80-60 160 40 260-10s180-90 380 20'/%3E%3Cpath d='M-20 160c90-50 170 50 270 0s170-80 370 30'/%3E%3Cpath d='M-20 200c100-40 180 60 280 10s160-70 360 40'/%3E%3Cpath d='M-20 380c120 40 200-60 300-20s200 80 340-10'/%3E%3Cpath d='M-20 420c120 50 210-50 310-10s190 70 330-20'/%3E%3Cpath d='M-20 460c130 60 220-40 320 0s180 60 320-30'/%3E%3Cellipse cx='450' cy='290' rx='60' ry='34'/%3E%3Cellipse cx='450' cy='290' rx='100' ry='60'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 600px 600px;
+}
+
+/* custom compass cursor hides the system cursor only on fine pointers */
+.has-cursor,
+.has-cursor * {
+  cursor: none !important;
+}
+.has-cursor input,
+.has-cursor textarea,
+.has-cursor select {
+  cursor: text !important;
+}
+
+/* 3D flip cards */
+.flip {
+  perspective: 1200px;
+}
+.flip-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+.flip:hover .flip-inner,
+.flip:focus-within .flip-inner,
+.flip[data-flipped='true'] .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* accordion */
+.acc-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease-out-expo);
+}
+.acc-body[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+
+/* split-text pieces */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+.split-char {
+  display: inline-block;
+  will-change: transform;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+@keyframes scroll-dot {
+  0% { transform: translateY(0); opacity: 1; }
+  80% { transform: translateY(14px); opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes flicker {
+  0%, 100% { transform: scale(1) translateY(0); opacity: 0.95; }
+  33% { transform: scale(1.06, 0.95) translateY(-1px); opacity: 0.8; }
+  66% { transform: scale(0.96, 1.05) translateY(1px); opacity: 1; }
+}
+.anim-float { animation: float-y 4s ease-in-out infinite; }
+.anim-wiggle:hover svg, .group:hover .anim-wiggle svg { animation: wiggle 0.6s ease-in-out; }
+.anim-flicker { animation: flicker 0.9s ease-in-out infinite; transform-origin: 50% 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

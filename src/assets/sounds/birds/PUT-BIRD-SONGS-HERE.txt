@@ -1,0 +1,4 @@
+Put short, clear single-bird song recordings here (2–10 s each, MP3 or M4A).
+Any file names work, e.g. blackbird.mp3, chaffinch.mp3, nightingale.mp3, cuckoo.mp3.
+4–10 different songs sound best. They play one at a time, from left/right,
+at the top of the site and in the camp by day. See README → "Natural sounds".

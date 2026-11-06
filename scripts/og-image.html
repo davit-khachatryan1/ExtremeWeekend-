@@ -1,0 +1,53 @@
+<!doctype html>
+<!-- Source of public/og-image.png (1200×630). Re-render with: npm run og -->
+<html><head><meta charset="utf-8" />
+<style>
+  @font-face { font-family: 'Oswald'; src: url('../node_modules/@fontsource-variable/oswald/files/oswald-latin-wght-normal.woff2') format('woff2'); font-weight: 200 700; }
+  @font-face { font-family: 'NotoArm'; src: url('../node_modules/@fontsource-variable/noto-sans-armenian/files/noto-sans-armenian-armenian-wdth-normal.woff2') format('woff2'); font-weight: 100 900; font-stretch: 62.5% 100%; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  .t1 { font-family: Oswald; font-weight: 700; font-size: 116px; line-height: .86; letter-spacing: -1px; text-transform: uppercase; }
+  .t2 { font-family: NotoArm; font-weight: 700; font-stretch: 80%; font-size: 30px; }
+  .t3 { font-family: Oswald; font-weight: 500; font-size: 26px; letter-spacing: 3px; text-transform: uppercase; }
+</style></head>
+<body>
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2a55"/><stop offset=".45" stop-color="#b5607a"/><stop offset=".75" stop-color="#f0874a"/><stop offset="1" stop-color="#ffd49c"/>
+    </linearGradient>
+    <radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff3d6"/><stop offset=".5" stop-color="#ffd49c" stop-opacity=".9"/><stop offset="1" stop-color="#f0874a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0B1426" stop-opacity=".75"/><stop offset=".55" stop-color="#0B1426" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#sky)"/>
+  <circle cx="880" cy="350" r="190" fill="url(#sun)"/>
+  <circle cx="880" cy="350" r="62" fill="#fff1d6"/>
+  <path d="M0 400 L120 300 L210 350 L330 250 L450 340 L560 280 L690 360 L800 270 L930 330 L1050 240 L1200 320 V630 H0Z" fill="#7a4a6e" opacity=".75"/>
+  <path d="M330 250 L360 280 L345 278 L320 292Z M1050 240 L1080 272 L1062 268 L1040 280Z" fill="#ffd9c0" opacity=".6"/>
+  <path d="M0 470 L150 380 L260 440 L400 350 L520 430 L640 370 L760 450 L900 380 L1040 450 L1200 400 V630 H0Z" fill="#3d2d4c"/>
+  <path d="M0 560 C 200 500, 380 520, 560 470 S 860 400, 1000 430 S 1150 470, 1200 455 V630 H0Z" fill="#0F2A1D"/>
+  <path d="M470 560 C 560 520, 640 500, 720 470 S 840 440, 930 452" fill="none" stroke="#E8772E" stroke-width="5" stroke-dasharray="2 14" stroke-linecap="round"/>
+  <!-- UAZ-style jeep silhouette on the ridge -->
+  <g transform="translate(905 360) rotate(-4) scale(.62)" fill="#0B1426">
+    <rect x="-20" y="74" width="40" height="50" rx="6"/>
+    <circle cx="-14" cy="96" r="32"/>
+    <path d="M10 70 H360 L372 78 V128 H10Z"/>
+    <path d="M240 46 H352 L366 72 H240Z"/>
+    <path d="M30 6 H226 L244 70 H30Z"/>
+    <rect x="44" y="-8" width="170" height="10" rx="3"/>
+    <rect x="70" y="-30" width="44" height="24" rx="4"/><rect x="128" y="-26" width="56" height="20" rx="4"/>
+    <rect x="368" y="112" width="30" height="14" rx="3"/>
+    <rect x="226" y="0" width="7" height="72" transform="rotate(-14 226 0)"/>
+    <circle cx="90" cy="132" r="40"/><circle cx="292" cy="132" r="40"/>
+  </g>
+  <g fill="#E8772E" opacity=".9"><circle cx="1144" cy="420" r="4"/></g>
+  <rect width="1200" height="630" fill="url(#fade)"/>
+  <rect x="64" y="64" width="64" height="64" rx="14" fill="#E8772E"/>
+  <path d="M70 114 L88 86 L97 99 L104 90 L122 114Z" fill="#0F2A1D"/>
+</svg>
+<div style="position:absolute;left:64px;top:148px;color:#F4F1EA">
+  <div class="t1">Weekend<br/><span style="color:#E8772E">Extreme</span></div>
+  <div class="t2" style="margin-top:26px;max-width:620px;line-height:1.25">Ջիպեր, լեռներ, աստղեր. քո ամենաէքստրիմ շաբաթ-կիրակին</div>
+  <div class="t3" style="margin-top:22px;color:#F4F1EA;opacity:.9">Koti → Atan · Off-road · Quest · Camp</div>
+</div>
+<div class="t3" style="position:absolute;left:64px;bottom:34px;background:#E8772E;color:#0F2A1D;padding:10px 20px;border-radius:999px;letter-spacing:1px">from 15 000 AMD</div>
+</body></html>

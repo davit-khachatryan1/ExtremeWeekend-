@@ -1,0 +1,7 @@
+Sound credits — keep one line per recording you add (required for CC BY files).
+Also add the same line to SOUND_CREDITS in src/config/content.ts so it shows in the footer.
+
+birds-ambience.mp3
+  "Forest #3" by Pierre Sibanarco — BigSoundBank sound #2715
+  https://bigsoundbank.com/forest-3-s2715.html
+  License: CC0 (public domain) — free for commercial use, attribution not required.
