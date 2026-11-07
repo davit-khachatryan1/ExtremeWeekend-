@@ -90,7 +90,7 @@ export function Hero({ started }: { started: boolean }) {
   useEffect(() => {
     if (!started || !intro.current || prefersReducedMotion()) return;
     const items = intro.current.querySelectorAll('[data-in]');
-    gsap.fromTo(items, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1.1, ease: 'expo.out', stagger: 0.07, delay: 0.35 });
+    gsap.fromTo(items, { y: 30 }, { y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.07, delay: 0.2 });
   }, [started]);
 
   const current = CHECKPOINTS[cp];

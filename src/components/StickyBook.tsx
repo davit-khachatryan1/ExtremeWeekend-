@@ -11,11 +11,23 @@ export function StickyBook({ ready }: { ready: boolean }) {
   const { t, lang } = useLang();
   const [hide, setHide] = useState(false);
   useEffect(() => {
-    const el = document.getElementById('booking');
-    if (!el) return;
-    const io = new IntersectionObserver((e) => setHide(e[0].isIntersecting), { rootMargin: '0px 0px -30% 0px' });
-    io.observe(el);
-    return () => io.disconnect();
+    let io: IntersectionObserver | null = null;
+    let timer = 0;
+    // the booking section lives in a separately loaded file — wait until it exists
+    const attach = () => {
+      const el = document.getElementById('booking');
+      if (!el) {
+        timer = window.setTimeout(attach, 200);
+        return;
+      }
+      io = new IntersectionObserver((e) => setHide(e[0].isIntersecting), { rootMargin: '0px 0px -30% 0px' });
+      io.observe(el);
+    };
+    attach();
+    return () => {
+      clearTimeout(timer);
+      io?.disconnect();
+    };
   }, []);
   return (
     <div

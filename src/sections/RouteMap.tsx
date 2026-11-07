@@ -19,8 +19,10 @@ const toMap = (x: number, z: number): [number, number] => [z + HALF, x + HALF];
 
 const PALETTE = ['#cfdcb3', '#bccf98', '#a6c07e', '#8fb06a', '#7aa05a', '#a2a96a', '#bfae80', '#b59d7c', '#9c8670', '#86766a', '#ece8de'];
 
-function useTopo() {
+/** Elevation bands of the map — the heavy part, computed only when the map is near the screen. */
+function useContours(enabled: boolean) {
   return useMemo(() => {
+    if (!enabled) return [] as { d: string; fill: string }[];
     const N = 96;
     const values = new Array(N * N);
     for (let j = 0; j < N; j++) {
@@ -42,7 +44,13 @@ function useTopo() {
             .join(''),
         )
         .join('');
-    const layers = polys.map((p, k) => ({ d: toPath(p), fill: PALETTE[Math.min(PALETTE.length - 1, k)] }));
+    return polys.map((p, k) => ({ d: toPath(p), fill: PALETTE[Math.min(PALETTE.length - 1, k)] }));
+  }, [enabled]);
+}
+
+/** Route line, checkpoint positions and the regional border (cheap). */
+function useRouteShapes() {
+  return useMemo(() => {
     // route path
     const pts: string[] = [];
     for (let k = 0; k <= 160; k++) {
@@ -64,19 +72,22 @@ function useTopo() {
     const l = Math.hypot(dx, dy) || 1;
     const nx = -dy / l, ny = dx / l;
     const border = `M${m1x + nx * -260},${m1y + ny * -260} Q${m1x + 30},${m1y - 20} ${m1x + nx * 260},${m1y + ny * 260}`;
-    return { layers, route, marks, border };
+    return { route, marks, border };
   }, []);
 }
 
 function TopoMap() {
   const { t } = useLang();
-  const { layers, route, marks, border } = useTopo();
+  const [nearRef, near] = useInView<HTMLDivElement>({ rootMargin: '1200px 0px 1200px 0px' });
+  const layers = useContours(near);
+  const { route, marks, border } = useRouteShapes();
   const [active, setActive] = useState<number | null>(null);
   const [ref, inView] = useInView<HTMLDivElement>({ rootMargin: '0px 0px -20% 0px' });
   const cp = active != null ? CHECKPOINTS[active] : null;
   const pos = active != null ? marks[active] : null;
 
   return (
+    <div ref={nearRef}>
     <div ref={ref} className="relative">
       <div className="relative aspect-square w-full overflow-hidden rounded-[32px] border border-forest/10 bg-[#dfe6cc] shadow-[0_40px_80px_-40px_rgba(15,42,29,.45)]">
         <svg viewBox={`0 0 ${WORLD_SIZE} ${WORLD_SIZE}`} className="h-full w-full" role="img" aria-label={t(T.route.schematic)}>
@@ -159,6 +170,7 @@ function TopoMap() {
       <div className="mt-4 hidden items-center gap-2 text-[13px] text-forest/60 md:flex">
         <Icon name="pin" size={15} /> {t(T.route.mapHint)}
       </div>
+    </div>
     </div>
   );
 }

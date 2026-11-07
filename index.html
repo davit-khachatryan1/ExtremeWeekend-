@@ -12,7 +12,17 @@
     <!--seo:end-->
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Instant loading screen, painted before any JavaScript runs. React replaces
+         it with the identical animated loader (src/components/Loader.tsx). -->
+    <div id="root"><div style="position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0F2A1D;color:#F4F1EA" aria-hidden="true">
+        <p style="margin:0;font-family:'Oswald Variable','Arial Narrow',sans-serif;font-weight:600;font-size:clamp(40px,9vw,88px);line-height:1;text-transform:uppercase">Weekend <span style="color:#E8772E">Extreme</span></p>
+        <svg viewBox="0 0 480 190" style="margin-top:24px;width:min(88vw,560px)">
+          <path d="M0 190 L60 110 L110 150 L180 60 L250 140 L320 40 L400 120 L480 70 V190Z" fill="#153626" />
+          <path d="M20 150 C 70 150, 80 95, 130 100 S 190 150, 240 120 S 300 50, 350 70 S 420 110, 460 40" fill="none" stroke="#2a4a35" stroke-width="10" stroke-linecap="round" />
+          <circle cx="460" cy="40" r="6" fill="#E8772E" />
+        </svg>
+        <p style="margin:16px 0 0;height:20px"></p>
+      </div></div>
     <noscript>
       <div style="padding:24px;font-family:sans-serif;background:#0F2A1D;color:#F4F1EA">
         Weekend Extreme — off-road jeep expeditions in Armenia: Koti (Tavush) → alpine camp in Lori.

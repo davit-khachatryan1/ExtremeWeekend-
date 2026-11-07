@@ -177,7 +177,12 @@ scripts/og-image.html ← source of public/og-image.png
 vite.config.ts        ← writes localized /en/ and /ru/ pages, sitemap.xml, robots.txt at build
 ```
 
-Performance notes: the 3D chunk (~280 KB gzipped) loads after the page shell (~180 KB gzipped) and renders only while the hero or camp section is on screen. Phones use fewer trees/grass, lower pixel ratio and no antialiasing; quality drops automatically if the frame rate falls. All 3D content is generated in code, so there are no textures or models to download.
+Performance notes (Lighthouse, mobile: ~87–89 performance, 100 accessibility / best practices / SEO; desktop ~93):
+- The branded loading screen is plain HTML in `index.html`, so it paints before any JavaScript runs.
+- **Phones** don't wait for the 3D: the loader ends once the fonts are in, the illustrated landscape shows first, and the 3D is built on the visitor's first touch/scroll (or after 5 s), then fades in. **Desktop** builds the 3D behind the loader.
+- The 3D world is built in stages (a few objects per frame), renders only while the hero or camp is on screen, and phones get fewer trees/grass and a lower pixel ratio; quality also drops automatically if the frame rate falls.
+- Everything below the hero is a separate file (`src/sections/BelowFold.tsx`) that loads right after the first screen and adds its sections a couple at a time while the browser is idle; the route map's elevation bands are computed only when the map gets near the screen.
+- All 3D content is generated in code, so there are no textures or models to download.
 
 ---
 

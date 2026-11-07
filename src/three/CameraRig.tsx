@@ -42,9 +42,11 @@ export function CameraRig() {
       const p = scrollState.camp;
       const k = smooth(0, 0.6, p);
       const ang = Math.atan2(AWAY.z, AWAY.x) + (p - 0.4) * 0.7 + Math.sin(t * 0.06) * 0.04;
-      const radius = 26 - 12 * k;
+      // tall phone screens: step back and tilt up less, so the campfire and tents stay in view
+      const portrait = state.size.height > state.size.width;
+      const radius = (portrait ? 31 : 26) - 12 * k;
       pos.set(FIRE.x + Math.cos(ang) * radius, FIRE.y + 11 - 7.4 * k, FIRE.z + Math.sin(ang) * radius);
-      const up = smooth(0.4, 1, p);
+      const up = smooth(0.4, 1, p) * (portrait ? 0.45 : 1);
       target.copy(FIRE).add(new THREE.Vector3(0, 1.4 + up * 6.5, 0)).addScaledVector(SUN_AZIMUTH, up * 8);
     } else {
       const p = scrollState.hero;
