@@ -45,7 +45,7 @@ function Day({ n, items, delay = 0 }: { n: number; items: Item[]; delay?: number
                 <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-sunset tabular-nums">
                   {typeof it.time === 'string' ? it.time : t(it.time)}
                 </p>
-                <h4 className="mt-1 text-[17px] font-semibold leading-snug text-offwhite">{t(it.title)}</h4>
+                <h3 className="mt-1 text-[17px] font-semibold leading-snug text-offwhite">{t(it.title)}</h3>
                 <p className="mt-1 text-[14px] leading-relaxed text-offwhite/65">{t(it.text)}</p>
               </div>
             </li>

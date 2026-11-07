@@ -5,7 +5,7 @@ import { ADDONS, T } from '../config/content';
 import { useLang } from '../lib/i18n';
 import { price } from '../lib/format';
 import { ScrollTrigger } from '../lib/smooth';
-import { scrollState, setSceneMode } from '../lib/scrollState';
+import { scrollState, setSectionOnScreen } from '../lib/scrollState';
 import { Icon } from '../components/Icon';
 import { Reveal, SplitReveal } from '../components/motion';
 
@@ -36,7 +36,8 @@ export function CampSection() {
         if (knob.current) knob.current.style.left = `${p * 100}%`;
         if (fillBar.current) fillBar.current.style.transform = `scaleX(${p})`;
       },
-      onToggle: (s) => setSceneMode(s.isActive ? 'camp' : 'none'),
+      onToggle: (s) => setSectionOnScreen('camp', s.isActive),
+      onRefresh: (s) => setSectionOnScreen('camp', s.isActive),
     });
     return () => st.kill();
   }, []);

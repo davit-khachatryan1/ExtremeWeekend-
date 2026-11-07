@@ -150,7 +150,8 @@ export function Counter({ value, prefix = '', suffix = '', className }: { value:
     };
   }, [inView, value]);
   return (
-    <span ref={ref} className={className} aria-label={`${prefix}${value}${suffix}`}>
+    <span ref={ref} className={className}>
+      <span className="sr-only">{`${prefix}${value}${suffix}`}</span>
       <span aria-hidden="true">
         {prefix}
         <span ref={out}>0</span>

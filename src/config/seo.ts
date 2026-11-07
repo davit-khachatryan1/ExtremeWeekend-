@@ -1,7 +1,7 @@
 /* SEO helpers — used at BUILD time by vite.config.ts (to write localized
  * /index.html, /en/index.html, /ru/index.html) and at runtime when the
  * language is switched. Pure functions, no browser APIs. */
-import { LANGS, PACKAGES, SITE, T, type Lang } from './content';
+import { LANGS, PACKAGES, SITE, T, type Lang } from './content.ts';
 
 export const KEYWORDS = [
   'Weekend Extreme', 'off-road tour Armenia', 'jeep tour Tavush Lori', 'Koti', 'Lori',

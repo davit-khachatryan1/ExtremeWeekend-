@@ -20,14 +20,17 @@ export function getLenis() {
   return lenis;
 }
 
-/** Smoothly scroll to a selector (e.g. '#booking') or element. */
-export function scrollToTarget(target: string | HTMLElement, offset = -64) {
+/** Smoothly scroll to a selector (e.g. '#booking') or element. The section
+ * lands just below the fixed header: both Lenis and the native fallback honour
+ * the CSS `scroll-padding-top` on <html>; `offset` adds extra space (negative = higher gap). */
+export function scrollToTarget(target: string | HTMLElement, offset = 0) {
   const el = typeof target === 'string' ? document.querySelector<HTMLElement>(target) : target;
   if (!el) return;
   if (lenis) {
     lenis.scrollTo(el, { offset, duration: 1.6 });
   } else {
-    const top = el.getBoundingClientRect().top + window.scrollY + offset;
+    const pad = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    const top = el.getBoundingClientRect().top + window.scrollY - pad + offset;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.scrollTo({ top, behavior: reduce ? 'auto' : 'smooth' });
   }

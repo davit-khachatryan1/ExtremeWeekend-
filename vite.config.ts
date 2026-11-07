@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import fs from 'node:fs';
 import path from 'node:path';
-import { renderSeoHead, langPath } from './src/config/seo';
-import { LANGS, SITE } from './src/config/content';
+import { renderSeoHead, langPath } from './src/config/seo.ts';
+import { LANGS, SITE } from './src/config/content.ts';
 
 const SEO_START = '<!--seo:start-->';
 const SEO_END = '<!--seo:end-->';

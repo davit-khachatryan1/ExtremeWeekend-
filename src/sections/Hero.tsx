@@ -5,7 +5,7 @@ import { CHECKPOINTS, T } from '../config/content';
 import { useLang } from '../lib/i18n';
 import { minPrice, price } from '../lib/format';
 import { gsap, ScrollTrigger, scrollToTarget } from '../lib/smooth';
-import { scrollState, setSceneMode } from '../lib/scrollState';
+import { scrollState, setSectionOnScreen } from '../lib/scrollState';
 import { prefersReducedMotion } from '../lib/device';
 import { Icon } from '../components/Icon';
 import { Cta, SplitReveal, cx } from '../components/motion';
@@ -46,6 +46,7 @@ export function Hero({ started }: { started: boolean }) {
       onUpdate: (s) => {
         const p = s.progress;
         scrollState.hero = p;
+        setSectionOnScreen('hero', p < 1);
         const u = uFromHero(p);
         // which checkpoint have we passed?
         let idx = 0;
@@ -78,11 +79,9 @@ export function Hero({ started }: { started: boolean }) {
           hud.current.style.transform = `translateY(${(1 - inA) * 24}px)`;
         }
       },
-      onToggle: (s) => {
-        if (s.isActive) setSceneMode('hero');
-      },
-      onLeave: () => setSceneMode('none'),
-      onEnterBack: () => setSceneMode('hero'),
+      // the hero is on screen from the very top (progress 0) until its end
+      onToggle: (s) => setSectionOnScreen('hero', s.progress < 1),
+      onRefresh: (s) => setSectionOnScreen('hero', s.progress < 1),
     });
     return () => st.kill();
   }, [t]);

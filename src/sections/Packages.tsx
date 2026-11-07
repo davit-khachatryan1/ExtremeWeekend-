@@ -197,7 +197,7 @@ export function Packages() {
                     className="w-full"
                     onClick={() => {
                       b.set({ packageId: p.id });
-                      scrollToTarget('#calculator', -90);
+                      scrollToTarget('#calculator', -16);
                     }}
                   >
                     {t(T.packages.choose)}

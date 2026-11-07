@@ -22,6 +22,15 @@ export function setSceneMode(mode: SceneMode) {
   scrollState.mode = mode;
   listeners.forEach((l) => l());
 }
+/* Which 3D-backed sections are on screen. The scene mode is derived from both
+ * at once, so it never depends on the order ScrollTrigger fires callbacks in
+ * (e.g. when jumping straight from the camp back to the hero). */
+const onScreen = { hero: true, camp: false };
+export function setSectionOnScreen(section: 'hero' | 'camp', on: boolean) {
+  onScreen[section] = on;
+  setSceneMode(onScreen.hero ? 'hero' : onScreen.camp ? 'camp' : 'none');
+}
+
 export function useSceneMode() {
   return useSyncExternalStore(
     (cb) => {

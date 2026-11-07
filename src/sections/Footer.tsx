@@ -16,9 +16,12 @@ export function Footer() {
   return (
     <footer className="relative z-10 overflow-hidden bg-night px-5 pb-28 pt-20 text-offwhite md:px-10 md:pb-12">
       <div className="mx-auto max-w-[1400px]">
-        <p className="font-display text-[clamp(64px,16vw,240px)] uppercase leading-[0.8] text-offwhite/[0.06]" aria-hidden="true">
-          Weekend Extreme
-        </p>
+        {/* decorative watermark (an image, not text) */}
+        <svg viewBox="0 0 1000 118" className="block w-full text-offwhite/[0.06]" aria-hidden="true" focusable="false">
+          <text x="0" y="104" textLength="1000" lengthAdjust="spacingAndGlyphs" fill="currentColor" className="font-display uppercase" style={{ fontSize: 132 }}>
+            Weekend Extreme
+          </text>
+        </svg>
         <div className="mt-12 grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo />
@@ -54,7 +57,7 @@ export function Footer() {
                       <Icon name={s.icon} size={16} /> {s.name}
                     </a>
                   ) : (
-                    <span className="inline-flex items-center gap-2 text-offwhite/45">
+                    <span className="inline-flex items-center gap-2 text-offwhite/65">
                       <Icon name={s.icon} size={16} /> {s.name} · {t(T.footer.soon)}
                     </span>
                   )}
@@ -74,9 +77,9 @@ export function Footer() {
           </div>
         </div>
         {SOUND_CREDITS.length > 0 && (
-          <p className="mt-12 text-[12px] leading-relaxed text-offwhite/35">♪ {SOUND_CREDITS.join(' · ')}</p>
+          <p className="mt-12 text-[12px] leading-relaxed text-offwhite/60">♪ {SOUND_CREDITS.join(' · ')}</p>
         )}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border-t border-offwhite/10 pt-6 text-[13px] text-offwhite/45">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-4 border-t border-offwhite/10 pt-6 text-[13px] text-offwhite/65">
           <span>
             © {new Date().getFullYear()} {SITE.brand}. {t(T.footer.rights)}.
           </span>
